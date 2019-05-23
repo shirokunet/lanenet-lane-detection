@@ -20,7 +20,6 @@ import numpy as np
 import tensorflow as tf
 import tqdm
 
-sys.path.append(os.path.join(os.path.dirname('__file__'), '..'))
 from config import global_config
 from lanenet_model import lanenet
 from lanenet_model import lanenet_postprocess
@@ -101,7 +100,7 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
                 avg_time_cost.clear()
 
             input_image_dir = ops.split(image_path.split('clips')[1])[0][1:]
-            input_image_name = ops.split(image_path)[0]
+            input_image_name = ops.split(image_path)[1]
             output_image_dir = ops.join(save_dir, input_image_dir)
             os.makedirs(output_image_dir, exist_ok=True)
             output_image_path = ops.join(output_image_dir, input_image_name)

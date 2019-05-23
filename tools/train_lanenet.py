@@ -225,7 +225,8 @@ def train_lanenet(dataset_dir, weights_path=None, net_flag='vgg'):
         dataset_dir=dataset_dir, flags='val'
     )
 
-    with tf.device('/gpu:1'):
+    # with tf.device('/gpu:1'):
+    with tf.device(CFG.TRAIN.GPU_DEVICE_ID):
         # set lanenet
         train_net = lanenet.LaneNet(net_flag=net_flag, phase='train', reuse=False)
         val_net = lanenet.LaneNet(net_flag=net_flag, phase='val', reuse=True)
@@ -377,7 +378,7 @@ def train_lanenet(dataset_dir, weights_path=None, net_flag='vgg'):
             )
 
     # Set tf model save path
-    model_save_dir = 'model/tusimple_lanenet_{:s}'.format(net_flag)
+    model_save_dir = 'models/tusimple_lanenet_{:s}'.format(net_flag)
     # if not ops.exists(model_save_dir):
     #     os.makedirs(model_save_dir)
     train_start_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))

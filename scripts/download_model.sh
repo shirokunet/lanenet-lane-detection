@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir ../models/tusimple_lanenet_vgg_20190519/
 cd ../models/tusimple_lanenet_vgg_20190519/
 
