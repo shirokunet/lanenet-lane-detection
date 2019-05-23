@@ -1,0 +1,16 @@
+.*
+!/.gitignore
+
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+__pycache__/
+*/__pycache__/*
+
+data/
+model/
+models/
+_trash/
+_tf_output/
+tboard/
+tmp/

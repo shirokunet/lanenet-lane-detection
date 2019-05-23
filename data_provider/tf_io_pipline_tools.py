@@ -61,7 +61,8 @@ def write_example_tfrecords(gt_images_paths, gt_binary_images_paths, gt_instance
         for _index, _gt_image_path in enumerate(gt_images_paths):
 
             # prepare gt image
-            _gt_image = cv2.imread(_gt_image_path, cv2.IMREAD_UNCHANGED)
+            # _gt_image = cv2.imread(_gt_image_path, cv2.IMREAD_UNCHANGED)
+            _gt_image = cv2.imread(_gt_image_path, cv2.IMREAD_COLOR)
             if _gt_image.shape != (RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT, 3):
                 _gt_image = cv2.resize(_gt_image,
                                        dsize=(RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT),
@@ -69,7 +70,8 @@ def write_example_tfrecords(gt_images_paths, gt_binary_images_paths, gt_instance
             _gt_image_raw = _gt_image.tostring()
 
             # prepare gt binary image
-            _gt_binary_image = cv2.imread(gt_binary_images_paths[_index], cv2.IMREAD_UNCHANGED)
+            # _gt_binary_image = cv2.imread(gt_binary_images_paths[_index], cv2.IMREAD_UNCHANGED)
+            _gt_binary_image = cv2.imread(gt_binary_images_paths[_index], cv2.IMREAD_GRAYSCALE)
             if _gt_binary_image.shape != (RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT):
                 _gt_binary_image = cv2.resize(_gt_binary_image,
                                               dsize=(RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT),
@@ -78,7 +80,8 @@ def write_example_tfrecords(gt_images_paths, gt_binary_images_paths, gt_instance
             _gt_binary_image_raw = _gt_binary_image.tostring()
 
             # prepare gt instance image
-            _gt_instance_image = cv2.imread(gt_instance_images_paths[_index], cv2.IMREAD_UNCHANGED)
+            # _gt_instance_image = cv2.imread(gt_instance_images_paths[_index], cv2.IMREAD_UNCHANGED)
+            _gt_instance_image = cv2.imread(gt_instance_images_paths[_index], cv2.IMREAD_GRAYSCALE)
             if _gt_instance_image.shape != (RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT):
                 _gt_instance_image = cv2.resize(_gt_instance_image,
                                                 dsize=(RESIZE_IMAGE_WIDTH, RESIZE_IMAGE_HEIGHT),
@@ -95,6 +98,10 @@ def write_example_tfrecords(gt_images_paths, gt_binary_images_paths, gt_instance
             _writer.write(_example.SerializeToString())
 
     log.info('Writing {:s} complete'.format(tfrecords_path))
+
+    log.info('_gt_image.shape {}'.format(_gt_image.shape))
+    log.info('_gt_binary_image.shape {}'.format(_gt_binary_image.shape))
+    log.info('_gt_instance_image.shape {}'.format(_gt_instance_image.shape))
 
     return
 

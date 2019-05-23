@@ -33,9 +33,11 @@ __C.TRAIN.GPU_MEMORY_FRACTION = 0.95
 # Set the GPU allow growth parameter during tensorflow training process
 __C.TRAIN.TF_ALLOW_GROWTH = True
 # Set the shadownet training batch size
-__C.TRAIN.BATCH_SIZE = 4
+# __C.TRAIN.BATCH_SIZE = 4
+__C.TRAIN.BATCH_SIZE = 1
 # Set the shadownet validation batch size
-__C.TRAIN.VAL_BATCH_SIZE = 4
+# __C.TRAIN.VAL_BATCH_SIZE = 4
+__C.TRAIN.VAL_BATCH_SIZE = 1
 # Set the class numbers
 __C.TRAIN.CLASSES_NUMS = 2
 # Set the image height
@@ -47,11 +49,14 @@ __C.TRAIN.EMBEDDING_FEATS_DIMS = 4
 # Set the random crop pad size
 __C.TRAIN.CROP_PAD_SIZE = 32
 # Set cpu multi process thread nums
-__C.TRAIN.CPU_MULTI_PROCESS_NUMS = 6
+# __C.TRAIN.CPU_MULTI_PROCESS_NUMS = 6
+__C.TRAIN.CPU_MULTI_PROCESS_NUMS = 8
 # Set the train moving average decay
 __C.TRAIN.MOVING_AVERAGE_DECAY = 0.9999
 # Set the GPU nums
-__C.TRAIN.GPU_NUM = 2
+__C.TRAIN.GPU_NUM = 1
+# Set the GPU deveice id
+__C.TRAIN.GPU_DEVICE_ID = '/gpu:0'
 
 # Test options
 __C.TEST = edict()
@@ -61,7 +66,7 @@ __C.TEST.GPU_MEMORY_FRACTION = 0.8
 # Set the GPU allow growth parameter during tensorflow testing process
 __C.TEST.TF_ALLOW_GROWTH = True
 # Set the test batch size
-__C.TEST.BATCH_SIZE = 2
+__C.TEST.BATCH_SIZE = 1
 
 # Test options
 __C.POSTPROCESS = edict()
