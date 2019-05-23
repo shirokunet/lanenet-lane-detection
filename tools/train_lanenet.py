@@ -387,7 +387,8 @@ def train_lanenet(dataset_dir, weights_path=None, net_flag='vgg'):
     saver = tf.train.Saver()
 
     # Set tf summary save path
-    tboard_save_path = 'tboard/tusimple_lanenet_{:s}'.format(net_flag)
+    train_start_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
+    tboard_save_path = 'tboard/tusimple_lanenet_multi_gpu_{:s}_{:s}'.format(net_flag, str(train_start_time))
     if not ops.exists(tboard_save_path):
         os.makedirs(tboard_save_path)
 
@@ -583,7 +584,8 @@ def train_lanenet_multi_gpu(dataset_dir, weights_path=None, net_flag='vgg'):
                         batchnorm_updates_op)
 
     # Set tf summary save path
-    tboard_save_path = 'tboard/tusimple_lanenet_multi_gpu_{:s}'.format(net_flag)
+    train_start_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
+    tboard_save_path = 'tboard/tusimple_lanenet_multi_gpu_{:s}_{:s}'.format(net_flag, str(train_start_time))
     os.makedirs(tboard_save_path, exist_ok=True)
 
     summary_writer = tf.summary.FileWriter(tboard_save_path)

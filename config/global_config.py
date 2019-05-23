@@ -27,9 +27,10 @@ __C.TRAIN.VAL_DISPLAY_STEP = 1000
 # Set the momentum parameter of the optimizer
 __C.TRAIN.MOMENTUM = 0.9
 # Set the initial learning rate
-__C.TRAIN.LEARNING_RATE = 0.001
+# __C.TRAIN.LEARNING_RATE = 0.001
+__C.TRAIN.LEARNING_RATE = 0.0005
 # Set the GPU resource used during training process
-__C.TRAIN.GPU_MEMORY_FRACTION = 0.95
+__C.TRAIN.GPU_MEMORY_FRACTION = 0.9
 # Set the GPU allow growth parameter during tensorflow training process
 __C.TRAIN.TF_ALLOW_GROWTH = True
 # Set the shadownet training batch size
@@ -72,8 +73,11 @@ __C.TEST.BATCH_SIZE = 1
 __C.POSTPROCESS = edict()
 
 # Set the post process connect components analysis min area threshold
-__C.POSTPROCESS.MIN_AREA_THRESHOLD = 100
+# __C.POSTPROCESS.MIN_AREA_THRESHOLD = 100
+__C.POSTPROCESS.MIN_AREA_THRESHOLD = 10
 # Set the post process dbscan search radius threshold
-__C.POSTPROCESS.DBSCAN_EPS = 0.35
+# __C.POSTPROCESS.DBSCAN_EPS = 0.35
+__C.POSTPROCESS.DBSCAN_EPS = 0.2
 # Set the post process dbscan min samples threshold
-__C.POSTPROCESS.DBSCAN_MIN_SAMPLES = 800
+# __C.POSTPROCESS.DBSCAN_MIN_SAMPLES = 800
+__C.POSTPROCESS.DBSCAN_MIN_SAMPLES = 100
