@@ -51,7 +51,7 @@ __C.TRAIN.EMBEDDING_FEATS_DIMS = 4
 __C.TRAIN.CROP_PAD_SIZE = 32
 # Set cpu multi process thread nums
 # __C.TRAIN.CPU_MULTI_PROCESS_NUMS = 6
-__C.TRAIN.CPU_MULTI_PROCESS_NUMS = 8
+__C.TRAIN.CPU_MULTI_PROCESS_NUMS = 12
 # Set the train moving average decay
 __C.TRAIN.MOVING_AVERAGE_DECAY = 0.9999
 # Set the GPU nums
